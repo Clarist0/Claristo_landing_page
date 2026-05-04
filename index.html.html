@@ -991,7 +991,7 @@
            Option B: Use Beehiiv's embed script instead of this form
            The form currently shows a success message on submit
       -->
-      <div class="hero-form beehiiv-wrapper">
+      <div id="top" class="hero-form beehiiv-wrapper">
         <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js"
          data-beehiiv-form="3aa54c18-e96c-41c3-94d2-e6f3a764caaa"></script>
 
@@ -1195,12 +1195,9 @@
            Replace action="#" with your Beehiiv subscribe form URL
            Example: action="https://app.beehiiv.com/forms/YOUR_FORM_ID/subscriptions"
       -->
-      <form class="email-row" action="#" method="POST"
-            style="max-width: 480px; margin: 0 auto;"
-            onsubmit="handleSignup(event, 'bottom-success')">
-        <input class="email-input dark" type="email" name="email" placeholder="Your email address" required />
-        <button type="submit" class="btn-gold">Get Early Access</button>
-      </form>
+      <div style="text-align: center; margin-top: 20px;">
+      <a href="#top" class="btn-gold">Get Early Access</a>
+    </div>
       <p class="form-note dark">Free to join · No credit card · No spam</p>
       <p class="success-msg" id="bottom-success">✓ Welcome to Claristo — we'll be in touch!</p>
     </div>
@@ -1320,7 +1317,7 @@
           <div class="footer-col-title">Contact</div>
           <ul>
             <!-- Edit email address -->
-            <li><a href="mailto:hello@claristo.com">hello@claristo.com</a></li>
+            <li><a href="mailto:contact@claristo.io">contact@claristo.io</a></li>
             <!-- Add more contact options here -->
           </ul>
         </div>
