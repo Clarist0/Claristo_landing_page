@@ -89,36 +89,85 @@
     .hero h1 em { font-style:italic; color:var(--gold); }
     .hero-sub { font-size:17px; font-weight:300; color:rgba(255,255,255,.55); max-width:560px; margin:0 auto 44px; line-height:1.78; animation:fadeUp .5s .18s ease both; }
 
-    /* ---- SIGNUP BOX (hero) ---- */
+    /* ---- SIGNUP BOX (hero + bottom CTA) ---- */
     .signup-box {
-      max-width:480px; margin:0 auto 20px;
-      max-height: 220px; overflow: hidden; 
+      max-width:440px; margin:0 auto 20px;
       background:rgba(255,255,255,.06);
       border:1px solid rgba(201,168,76,.28);
-      border-radius:14px; padding:28px 28px 22px;
+      border-radius:14px; padding:24px 24px 20px;
       animation:fadeUp .5s .26s ease both;
     }
-    .signup-box iframe,
-.signup-box > div,
-.signup-box form { width:100% !important; max-width:100% !important; }
-
-.signup-box input,
-.signup-box [type="email"] { width:100% !important; max-width:100% !important; box-sizing:border-box !important; }
-
-.signup-box button,
-.signup-box [type="submit"] { width:100% !important; max-width:100% !important; box-sizing:border-box !important; }
     .signup-box-label { font-size:10px; font-weight:500; letter-spacing:2.5px; text-transform:uppercase; color:var(--gold); display:block; margin-bottom:6px; }
     .signup-box-title { font-family:'Playfair Display',serif; font-size:17px; font-weight:700; color:#fff; margin-bottom:16px; }
-    .signup-row { display:flex; gap:10px; flex-wrap:wrap; }
-    .signup-input { flex:1; min-width:180px; padding:12px 16px; border-radius:7px; border:1.5px solid rgba(201,168,76,.2); background:rgba(255,255,255,.08); color:#fff; font-family:'DM Sans',sans-serif; font-size:14px; outline:none; transition:border-color .2s; }
+
+    /* placeholder form (used when Beehiiv not connected) */
+    .signup-row { display:flex; flex-direction:column; gap:10px; width:100%; }
+    .signup-input { width:100%; padding:12px 16px; border-radius:7px; border:1.5px solid rgba(201,168,76,.25); background:rgba(255,255,255,.08); color:#fff; font-family:'DM Sans',sans-serif; font-size:14px; outline:none; transition:border-color .2s; box-sizing:border-box; }
     .signup-input::placeholder { color:rgba(255,255,255,.3); }
-    .signup-input:focus { border-color:rgba(201,168,76,.5); }
-    .signup-btn { padding:12px 26px; background:var(--gold); color:var(--navy); font-family:'DM Sans',sans-serif; font-size:14px; font-weight:500; border:none; border-radius:7px; cursor:pointer; white-space:nowrap; transition:background .2s, transform .15s; }
+    .signup-input:focus { border-color:rgba(201,168,76,.55); }
+    .signup-btn { width:100%; padding:13px; background:var(--gold); color:var(--navy); font-family:'DM Sans',sans-serif; font-size:14px; font-weight:500; border:none; border-radius:7px; cursor:pointer; transition:background .2s, transform .15s; }
     .signup-btn:hover { background:var(--gold-light); transform:translateY(-1px); }
-    .signup-note { font-size:11px; color:rgba(255,255,255,.28); margin-top:11px; }
+    .signup-note { font-size:11px; color:rgba(255,255,255,.28); margin-top:10px; }
     .signup-success { display:none; font-size:14px; color:var(--gold-light); margin-top:10px; font-weight:500; }
 
-    /* cream variant — used in bottom CTA */
+    /* ---- BEEHIIV EMBED OVERRIDES ----
+       These force the Beehiiv iframe/form to match
+       the signup box width, stack vertically, and
+       use consistent spacing. Do not remove.        */
+    .signup-box iframe,
+    .signup-box > div { width:100% !important; max-width:100% !important; }
+
+    .signup-box form,
+    .signup-box [class*="form"],
+    .signup-box [class*="Form"] {
+      display:flex !important;
+      flex-direction:column !important;
+      gap:10px !important;
+      width:100% !important;
+      max-width:100% !important;
+    }
+
+    .signup-box input,
+    .signup-box [type="email"],
+    .signup-box [type="text"] {
+      width:100% !important;
+      max-width:100% !important;
+      box-sizing:border-box !important;
+      padding:12px 16px !important;
+      border-radius:7px !important;
+      border:1.5px solid rgba(201,168,76,.25) !important;
+      background:rgba(255,255,255,.08) !important;
+      color:#fff !important;
+      font-family:'DM Sans',sans-serif !important;
+      font-size:14px !important;
+      margin-bottom:0 !important;
+    }
+
+    .signup-box button,
+    .signup-box [type="submit"] {
+      width:100% !important;
+      max-width:100% !important;
+      box-sizing:border-box !important;
+      padding:13px !important;
+      background:#C9A84C !important;
+      color:#0B1F3A !important;
+      font-family:'DM Sans',sans-serif !important;
+      font-size:14px !important;
+      font-weight:500 !important;
+      border:none !important;
+      border-radius:7px !important;
+      cursor:pointer !important;
+      margin-top:0 !important;
+    }
+
+    .signup-box button:hover,
+    .signup-box [type="submit"]:hover { background:#E8C97A !important; }
+
+    /* hide Beehiiv's own branding/footer if it appears */
+    .signup-box [class*="powered"],
+    .signup-box [class*="branding"] { display:none !important; }
+
+    /* cream variant — bottom CTA section */
     .signup-box.cream { background:rgba(255,255,255,.04); border-color:rgba(201,168,76,.3); }
     .signup-box.cream .signup-box-title { color:#fff; }
     .signup-box.cream .signup-note { color:rgba(255,255,255,.25); }
@@ -298,7 +347,11 @@
            Everything else in this box is editable -->
       <div class="signup-box">
         <span class="signup-box-label">✦ &nbsp; Get Early Access</span>
-<script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="18ecf4c8-0898-49aa-972c-7a56cc945e18"></script>
+        <div class="signup-box-title">Join the Claristo waitlist</div>
+        <form class="signup-row" onsubmit="handleSignup(event,'s1')">
+          <input class="signup-input" type="email" placeholder="Enter your email address" required />
+          <button type="submit" class="signup-btn">Join Waitlist</button>
+        </form>
         <!-- edit note text -->
         <p class="signup-note">Free to join &nbsp;·&nbsp; No spam &nbsp;·&nbsp; Unsubscribe anytime</p>
         <p class="signup-success" id="s1">✓ You're on the list — we'll be in touch soon!</p>
@@ -503,7 +556,11 @@
            TO CONNECT BEEHIIV: replace the <form> below with your Beehiiv embed snippet -->
       <div class="signup-box cream">
         <span class="signup-box-label">✦ &nbsp; Secure your spot</span>
-        <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="18ecf4c8-0898-49aa-972c-7a56cc945e18"></script>
+        <div class="signup-box-title">Join the Claristo waitlist</div>
+        <form class="signup-row" onsubmit="handleSignup(event,'s2')">
+          <input class="signup-input" type="email" placeholder="Your email address" required />
+          <button type="submit" class="signup-btn">Get Early Access</button>
+        </form>
         <p class="signup-note">Free to join &nbsp;·&nbsp; No credit card &nbsp;·&nbsp; No spam, ever</p>
         <p class="signup-success" id="s2">✓ Welcome to Claristo — we'll be in touch!</p>
       </div>
